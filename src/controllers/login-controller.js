@@ -1,6 +1,6 @@
 import { HttpStatusError } from 'common-errors';
 import jwt from 'jsonwebtoken';
-import { getUserByEmail } from '../services/database/User-db-service.js';
+import { getUserByEmail } from '../services/database/user-BBDD-services.js'
 import config from '../config.js';
 import { checkHash } from '../utils/encrypt.js';
 
