@@ -1,7 +1,6 @@
 # Usa la imagen oficial de Node.js
-FROM node:14
+FROM node:latest
 
-# Establece el directorio de trabajo en /app
 WORKDIR /app
 
 # Copia el archivo package.json y package-lock.json al directorio de trabajo
@@ -18,3 +17,6 @@ EXPOSE 3000
 
 # Comando para ejecutar la API
 CMD ["node", "app.js"]
+
+
+# Para crear la imagen ejecuta:  docker build -t somni_joyas .
