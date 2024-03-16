@@ -1,93 +1,124 @@
-schemas:
-  User:
-    type: object
-    properties:
-      name:
-        type: string
-      lastname:
-        type: string
-      email:
-        type: string
-        format: email
-      phone:
-        type: number
-      address:
-        type: string
-      location:
-        type: string
-      city:
-        type: string
-      postalCode:
-        type: number
-      password:
-        type: string
+User:
+  type: object
+  properties:
+    name:
+      type: string
+    lastname:
+      type: string
+    email:
+      type: string
+      format: email
+    phone:
+      type: number
+    address:
+      type: string
+    location:
+      type: string
+    city:
+      type: string
+    postalCode:
+      type: number
+    password:
+      type: string
+    cart:
+      type: array
+      items:
+        type: object
+        properties:
+          itemId:
+            type: string
+          quantity:
+            type: number
+  required:
+    - name
+    - lastname
+    - email
+    - phone
+    - address
+    - location
+    - city
+    - postalCode
+    - password
+  example:
+      name: "John"
+      lastname: "Doe"
+      email: "john.doe@example.com"
+      phone: 123456789
+      address: "123 Main St"
+      location: "City"
+      city: "Town"
+      postalCode: 12345
+      password: "password123"
       cart:
-        type: array
-        items:
-          type: object
-          properties:
-            itemId:
-              type: string
-            quantity:
-              type: number
-    required:
-      - name
-      - lastname
-      - email
-      - phone
-      - address
-      - location
-      - city
-      - postalCode
-      - password
+        - itemId: "123abc"
+          quantity: 2
+        - itemId: "456def"
+          quantity: 1
 
-  Article:
-    type: object
-    properties:
-      type:
-        type: string
-        enum: [anillo, pendientes, pulseras, cadenas, gargantillas, colgante]
-      material:
-        type: string
-        enum: [plata, oro, acero]
-      finish:
-        type: string
-        enum: [plateado, dorado, oro rosado, rodiado]
-      dimensions:
-        type: string
-      details:
-        type: string
-      units:
-        type: number
-      price:
-        type: number
-      image:
-        type: string
-    required:
-      - type
-      - material
-      - finish
-      - details
-      - units
-      - price
-      - image
+Article:
+  type: object
+  properties:
+    type:
+      type: string
+      enum: [anillo, pendientes, pulseras, cadenas, gargantillas, colgante]
+    material:
+      type: string
+      enum: [plata, oro, acero]
+    finish:
+      type: string
+      enum: [plateado, dorado, oro rosado, rodiado]
+    dimensions:
+      type: string
+    details:
+      type: string
+    units:
+      type: number
+    price:
+      type: number
+    image:
+      type: string
+  required:
+    - type
+    - material
+    - finish
+    - details
+    - units
+    - price
+    - image
+  example:
+    type: "anillo"
+    material: "plata"
+    finish: "plateado"
+    dimensions: "10mm"
+    details: "Anillo de plata con diamantes incrustados."
+    units: 10
+    price: 100.00
+    image: "https://example.com/ring.jpg"
 
-  Order:
-    type: object
-    properties:
-      user:
+
+Order:
+  type: object
+  properties:
+    user:
+      type: string
+    articles:
+      type: array
+      items:
         type: string
-      articles:
-        type: array
-        items:
-          type: string
-      date:
-        type: string
-        format: date-time
-      price:
-        type: number
-    required:
-      - user
-      - articles
-      - date
-      - price
+    date:
+      type: string
+      format: date-time
+    price:
+      type: number
+  required:
+    - user
+    - articles
+    - date
+    - price
+  example:
+    user: "user123"
+    articles:
+      - "article123"
+      - "article456"
+    date: "2024-03-15T08:00:00Z"
+    price: 250.00
