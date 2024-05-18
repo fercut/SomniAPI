@@ -5,6 +5,7 @@ import miscRouter from './misc-router.js';
 import userRouter from './user-router.js';
 import articleRouter from './article-router.js';
 import orderRouter from './order-router.js';
+import { checkRoot } from '../middlewares/auth-middleware.js';
 
 const router = express.Router();
 
