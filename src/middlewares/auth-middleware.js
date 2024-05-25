@@ -4,7 +4,6 @@ import logger from "../utils/logger.js";
 import config from "../config.js";
 
 export function checkToken(req, res, next){
-    console.log(req.headers.token)
 
     const {authorization} = req.headers;
 
@@ -24,7 +23,6 @@ export function checkToken(req, res, next){
 }
 
 export function checkRoot(req, res, next){
-    console.log(req.headers.token)
 
     const {authorization} = req.headers;
 

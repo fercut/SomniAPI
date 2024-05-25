@@ -19,7 +19,7 @@ import { checkRoot } from '../middlewares/auth-middleware.js';
 const router = Router();
 
 // CRUD
-router.post('/', checkRoot, createArticleController);
+router.post('/', createArticleController);
 router.patch('/:id', checkRoot, updateArticleController);
 router.delete('/:id', checkRoot, deleteArticleController);
 
