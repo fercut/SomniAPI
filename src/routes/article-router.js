@@ -20,8 +20,8 @@ const router = Router();
 
 // CRUD
 router.post('/', createArticleController);
-router.patch('/:id', checkRoot, updateArticleController);
-router.delete('/:id', checkRoot, deleteArticleController);
+router.patch('/:id', updateArticleController);
+router.delete('/:id', deleteArticleController);
 
 // Mostrar articulos
 router.get('/', getArticleController);
