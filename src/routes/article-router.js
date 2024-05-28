@@ -14,14 +14,14 @@ import {
     getSearchController,
     getHomeController
 } from '../controllers/articles-controller.js';
-import { checkRoot } from '../middlewares/auth-middleware.js';
+import { checkToken } from '../middlewares/auth-middleware.js';
 
 const router = Router();
 
 // CRUD
-router.post('/', createArticleController);
-router.patch('/:id', updateArticleController);
-router.delete('/:id', deleteArticleController);
+router.post('/', checkToken, createArticleController);
+router.patch('/:id', checkToken, updateArticleController);
+router.delete('/:id', checkToken, deleteArticleController);
 
 // Mostrar articulos
 router.get('/', getArticleController);
